@@ -18,8 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     MainNavComponent,
-    HomeComponent,
-    PerfilListarComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
