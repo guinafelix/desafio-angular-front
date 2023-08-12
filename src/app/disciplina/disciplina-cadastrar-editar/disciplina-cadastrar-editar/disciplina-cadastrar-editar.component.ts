@@ -20,7 +20,7 @@ export class DisciplinaCadastrarEditarComponent {
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
       nome: ['', Validators.required],
-      cargaHoraria: [0, Validators.required],
+      cargaHoraria: ['', Validators.required],
     });
   }
 
