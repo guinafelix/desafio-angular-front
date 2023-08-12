@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Disciplina } from '../../disciplina.model';
+import { DisciplinaService } from '../../disciplina.service';
 
 @Component({
   selector: 'app-disciplina-listar',
@@ -7,5 +10,17 @@ import { Component } from '@angular/core';
 })
 export class DisciplinaListarComponent {
 
-  disciplinas$ = 
+    disciplinas$: Observable<Disciplina[]>;
+
+    colunasTabela = ['id', 'nome', 'cargaHoraria'];
+
+    constructor(private disciplinaService: DisciplinaService) { }
+  
+    ngOnInit(): void {
+      this.listarDisciplinas();
+    }
+
+    listarDisciplinas() {
+      this.disciplinas$ = this.disciplinaService.listar();
+    } 
 }
