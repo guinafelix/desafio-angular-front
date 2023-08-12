@@ -13,14 +13,12 @@ import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CorsInterceptor } from './cors.interceptor';
-import { CursoListarComponent } from './curso/curso-listar/curso-listar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     HomeComponent,
-    CursoListarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,41 @@
-<p>curso-listar works!</p>
+<mat-toolbar>Cursos</mat-toolbar>
+<ng-template #carregando>
+    <mat-spinner></mat-spinner>
+</ng-template>
+<div class="component-container">
+  <div *ngIf="cursos$ | async as cursos; else carregando">
+  <table mat-table [dataSource]="cursos" class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let curso"> {{curso.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let curso"> {{curso.nome}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="duracaoEmSemestres">
+        <th mat-header-cell *matHeaderCellDef> Qtd.Semestres </th>
+        <td mat-cell *matCellDef="let curso"> {{curso.duracaoEmSemestres}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Matriz </th>
+        <td mat-cell *matCellDef="let row"> 
+          <div class="linha-botoes matriz-button">
+            <button mat-raised-button color="primary" routerLink="'/curso/matriz/' + curso.id">Matriz Curricular</button>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="colunasTabela"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunasTabela;"></tr>
+    </table>
+  </div>
+  <div class="linha-botoes">
+    <button mat-raised-button color="primary" routerLink="/disciplina/cadastrar">Cadastar</button>
+  </div>
+</div>
