@@ -10,7 +10,10 @@ import { PerfilService } from '../../perfil.service';
 })
 export class PerfilListarComponent  implements OnInit{
   
-    perfis$: Observable<Perfil[]> | undefined;
+    perfis$: Observable<Perfil[]>;
+
+    colunasTabela = ['id', 'nome'];
+
     constructor(private perfilService: PerfilService) { }
   
     ngOnInit(): void {
