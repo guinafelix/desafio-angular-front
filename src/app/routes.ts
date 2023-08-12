@@ -35,6 +35,10 @@ export default [
     loadChildren: () => import('./curso/curso-listar-matriz/curso-listar-matriz.module').then(m => m.CursoListarMatrizModule)
   },
   {
+    path: "curso/cadastrar",
+    loadChildren: () => import('./curso/curso-cadastrar-editar/curso-cadastrar-editar.module').then(m => m.CursoCadastrarEditarModule)
+  },
+  {
     path:"usuarios",
     loadChildren: () => import('./usuario/usuario-listar/usuario-listar.module').then(m => m.UsuarioListarModule)
   }
