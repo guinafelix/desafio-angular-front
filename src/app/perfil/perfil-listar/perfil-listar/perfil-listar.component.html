@@ -1,4 +1,4 @@
-<mat-toolbar>Perfis</mat-toolbar>
+<mat-toolbar>Perfis de usuário</mat-toolbar>
 <ng-template #carregando>
     <mat-spinner></mat-spinner>
 </ng-template>
@@ -21,6 +21,9 @@
       <tr mat-header-row *matHeaderRowDef="colunasTabela"></tr>
       <tr mat-row *matRowDef="let row; columns: colunasTabela;"></tr>
     </table>
+  </div>
+  <div class="linha-botoes">
+    <button mat-raised-button color="primary" routerLink="/perfil/cadastrar">Criar perfil</button>
   </div>
 </div>
 

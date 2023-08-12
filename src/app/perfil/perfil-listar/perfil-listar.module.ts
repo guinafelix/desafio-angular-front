@@ -6,6 +6,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PerfilListarComponent } from './perfil-listar/perfil-listar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button'; 
 
 @NgModule({
   declarations: [PerfilListarComponent],
@@ -14,7 +15,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     PerfilListarRoutingModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ]
 })
 export class PerfilListarModule { }
