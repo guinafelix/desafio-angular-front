@@ -1,0 +1,18 @@
+<mat-toolbar>Cadasta Disciplina</mat-toolbar>
+<div class="component-container">
+  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && salvar()"
+        novalidate>
+        <mat-form-field>
+            <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
+            <mat-error>Campo é obrigatório</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Carga Horaria" formControlName="cargaHoraria" required autocomplete="off">
+            <mat-error>Campo é obrigatório</mat-error>
+        </mat-form-field>
+        <div class="linha-botoes">
+            <button mat-raised-button color="primary" [disabled]="!formGroup.valid">Salvar</button>
+            <button type="button" mat-raised-button routerLink="/disciplinas">Cancelar</button>
+        </div>
+    </form>
+</div>

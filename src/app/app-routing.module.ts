@@ -19,6 +19,14 @@ const routes: Routes = [
   {
     path: "disciplinas",
     loadChildren: () => import('./disciplina/disciplina-listar/disciplina-listar.module').then(m => m.DisciplinaListarModule)
+  },
+  {
+    path: "disciplina/cadastrar",
+    loadChildren: () => import('./disciplina/disciplina-cadastrar-editar/disciplina-cadastrar-editar.module').then(m => m.DisciplinaCadastrarEditarModule)
+  },
+  {
+    path: "disciplina/editar/:id",
+    loadChildren: () => import('./disciplina/disciplina-cadastrar-editar/disciplina-cadastrar-editar.module').then(m => m.DisciplinaCadastrarEditarModule)
   }
 ];
 
