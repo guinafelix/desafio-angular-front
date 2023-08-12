@@ -29,5 +29,9 @@ export default [
   {
     path: "cursos",
     loadChildren: () => import('./curso/curso-listar/curso-listar.module').then(m => m.CursoListarModule) 
+  },
+  {
+    path: "curso/matriz/:id",
+    loadChildren: () => import('./curso/curso-listar-matriz/curso-listar-matriz.module').then(m => m.CursoListarMatrizModule)
   }
 ]

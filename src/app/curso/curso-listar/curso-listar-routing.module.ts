@@ -10,7 +10,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CursoListarRoutingModule { 
-
-  
-}
+export class CursoListarRoutingModule { }

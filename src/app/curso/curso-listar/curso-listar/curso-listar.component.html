@@ -25,9 +25,9 @@
 
       <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef> Matriz </th>
-        <td mat-cell *matCellDef="let row"> 
+        <td mat-cell *matCellDef="let curso"> 
           <div class="linha-botoes matriz-button">
-            <button mat-raised-button color="primary" routerLink="'/curso/matriz/' + curso.id">Matriz Curricular</button>
+            <button mat-raised-button color="primary" routerLink="/curso/matriz/{{curso.id}}">Matriz Curricular</button>
           </div>
         </td>
       </ng-container>

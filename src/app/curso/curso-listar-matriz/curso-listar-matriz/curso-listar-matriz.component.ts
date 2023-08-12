@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Curso } from '../../curso.model';
 import { Observable } from 'rxjs';
 import { CursoService } from '../../curso.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-curso-listar-matriz',
@@ -11,15 +12,15 @@ import { CursoService } from '../../curso.service';
 export class CursoListarMatrizComponent {
   curso$: Observable<Curso>;
 
-  colunasTabela = ['id', 'semestre', 'disciplina', 'cargaHoraria'];
+  colunasTabela = ['id', 'nome', 'cargaHoraria'];
 
-  constructor(private cursoService: CursoService) { }
+  constructor (
+    private cursoService: CursoService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
-  ngOnInit(id: string): void {
-    this.listarCursoMatriz(id);
-  }
-
-  listarCursoMatriz(id: string) {
+  ngOnInit(): void {
+    const id = this.activatedRoute.snapshot.params['id']; // Captura o id dos parâmetros da rota
     this.curso$ = this.cursoService.listarMatriz(id);
-  } 
+  }
 }
