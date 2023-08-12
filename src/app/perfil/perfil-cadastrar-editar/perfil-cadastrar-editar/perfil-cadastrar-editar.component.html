@@ -1,1 +1,14 @@
-<p>perfil-cadastrar-editar works!</p>
+<mat-toolbar>Cadastar Perfil de Usuário</mat-toolbar>
+<div class="component-container">
+  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && salvar()"
+        novalidate>
+        <mat-form-field>
+            <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
+            <mat-error>Campo é obrigatório</mat-error>
+        </mat-form-field>
+        <div class="linha-botoes">
+            <button mat-raised-button color="primary" [disabled]="!formGroup.valid">Salvar</button>
+            <button type="button" mat-raised-button routerLink="/perfis">Cancelar</button>
+        </div>
+    </form>
+</div>

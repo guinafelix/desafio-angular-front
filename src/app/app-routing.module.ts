@@ -9,11 +9,11 @@ const routes: Routes = [
     loadChildren: () => import('./perfil/perfil-listar/perfil-listar.module').then(m => m.PerfilListarModule) 
   },
   {
-    path: "perfis/cadastrar",
+    path: "perfil/cadastrar",
     loadChildren: () => import('./perfil/perfil-cadastrar-editar/perfil-cadastrar-editar.module').then(m => m.PerfilCadastrarEditarModule)
   },
   {
-    path: "perfis/editar/:id",
+    path: "perfil/editar/:id",
     loadChildren: () => import('./perfil/perfil-cadastrar-editar/perfil-cadastrar-editar.module').then(m => m.PerfilCadastrarEditarModule)
   }
 ];
