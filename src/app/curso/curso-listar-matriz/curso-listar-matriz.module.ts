@@ -1,28 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CursoListarRoutingModule } from './curso-listar-routing.module';
+import { CursoListarMatrizRoutingModule } from './curso-listar-matriz-routing.module';
+import { CursoListarMatrizComponent } from './curso-listar-matriz/curso-listar-matriz.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { CursoListarComponent } from './curso-listar/curso-listar.component';
 
 
 @NgModule({
   declarations: [
-    CursoListarComponent
+    CursoListarMatrizComponent
   ],
   imports: [
     CommonModule,
-    CursoListarRoutingModule,
+    CursoListarMatrizRoutingModule,
     MatTableModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatButtonModule
   ]
 })
-export class CursoListarModule { 
-  
-
-}
+export class CursoListarMatrizModule { }

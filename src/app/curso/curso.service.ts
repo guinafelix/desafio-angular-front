@@ -10,10 +10,15 @@ export class CursoService {
 
   private baseUrl = "http://localhost:8080/api"
   private endpoint = "/cursos"
+  private findByIdEndpoint = "/curso"
 
   constructor(private httpClient: HttpClient) {}
 
   listar(): Observable<Curso[]> {
     return this.httpClient.get<Curso[]>(`${this.baseUrl}${this.endpoint}`)
   }
+
+  listarMatriz(id: string): Observable<Curso> {
+    return this.httpClient.get<Curso>(`${this.baseUrl}${this.findByIdEndpoint}/${id}`)
+  } 
 }
