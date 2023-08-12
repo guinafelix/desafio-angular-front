@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: "perfil/editar/:id",
     loadChildren: () => import('./perfil/perfil-cadastrar-editar/perfil-cadastrar-editar.module').then(m => m.PerfilCadastrarEditarModule)
+  }, 
+  {
+    path: "disciplinas",
+    loadChildren: () => import('./disciplina/disciplina-listar/disciplina-listar.module').then(m => m.DisciplinaListarModule)
   }
 ];
 
