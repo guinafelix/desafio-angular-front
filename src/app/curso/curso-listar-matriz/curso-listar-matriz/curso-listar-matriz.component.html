@@ -1,12 +1,11 @@
-<mat-toolbar>Matriz Curricular</mat-toolbar>
 <ng-template #carregando>
     <mat-spinner></mat-spinner>
 </ng-template>
 <div class="component-container">
   <div *ngIf="curso$ | async as curso; else carregando">
+    <mat-toolbar>Matriz curricular do curso {{curso.nome}}</mat-toolbar>
     <div *ngFor="let oferta of curso.ofertas">
-      <h3>Semestre {{ oferta.semestre }}</h3>
-      <div *ngFor="let disciplina of oferta.disciplinas">
+      <mat-toolbar>Semestre {{ oferta.semestre }}</mat-toolbar>
         <table mat-table [dataSource]="oferta.disciplinas" class="mat-elevation-z8">
           <!-- Position Column -->
           <ng-container matColumnDef="id">
@@ -28,7 +27,7 @@
           <tr mat-header-row *matHeaderRowDef="colunasTabela"></tr>
           <tr mat-row *matRowDef="let row; columns: colunasTabela;"></tr>
         </table>
-      </div>
     </div>
+  </div>
 </div>
 
