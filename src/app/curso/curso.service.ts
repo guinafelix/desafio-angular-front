@@ -11,6 +11,7 @@ export class CursoService {
   private baseUrl = "http://localhost:8080/api"
   private endpoint = "/cursos"
   private findByIdEndpoint = "/curso"
+  private createEndpoint = "/curso"
 
   constructor(private httpClient: HttpClient) {}
 
@@ -21,4 +22,8 @@ export class CursoService {
   listarMatriz(id: string): Observable<Curso> {
     return this.httpClient.get<Curso>(`${this.baseUrl}${this.findByIdEndpoint}/${id}`)
   } 
+
+  cadastrar(curso: Curso): Observable<Curso> {
+    return this.httpClient.post<Curso>(`${this.baseUrl}${this.createEndpoint}`, curso)
+  }
 }

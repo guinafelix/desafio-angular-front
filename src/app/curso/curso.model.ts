@@ -6,6 +6,11 @@ export interface Oferta {
     disciplinas: Disciplina[];
 }
 
+export interface CriarOferta {
+    semestre: number;
+    disciplinasId: Disciplina[];
+}
+
 export interface Curso {
     id: number;
     nome: string;
