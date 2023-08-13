@@ -6,9 +6,26 @@
             <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
             <mat-error>Campo é obrigatório</mat-error>
         </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Matrícula" formControlName="matricula" autocomplete="off">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Perfil" formControlName="perfilId" required>
+                <mat-option *ngFor="let perfil of perfis$ | async" [value]="perfil.id">{{perfil.nome}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Curso" formControlName="cursoId">
+                <mat-option *ngFor="let curso of cursos$ | async" [value]="curso.id">{{curso.nome}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Senha" formControlName="senha" required autocomplete="off">
+            <mat-error>Campo é obrigatório</mat-error>
+        </mat-form-field>
         <div class="linha-botoes">
             <button mat-raised-button color="primary" [disabled]="!formGroup.valid">Salvar</button>
-            <button type="button" mat-raised-button routerLink="/perfis">Cancelar</button>
+            <button type="button" mat-raised-button routerLink="/usuarios">Cancelar</button>
         </div>
     </form>
 </div>

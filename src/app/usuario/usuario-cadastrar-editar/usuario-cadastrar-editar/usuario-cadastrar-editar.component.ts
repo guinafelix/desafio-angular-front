@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../usuario.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Perfil } from 'src/app/perfil/perfil.model';
+import { Curso } from 'src/app/curso/curso.model';
+import { PerfilService } from 'src/app/perfil/perfil.service';
+import { CursoService } from 'src/app/curso/curso.service';
 
 @Component({
   selector: 'app-usuario-cadastrar-editar',
@@ -10,10 +15,14 @@ import { Router } from '@angular/router';
 })
 export class UsuarioCadastrarEditarComponent {
   formGroup: FormGroup;
+  perfis$: Observable<Perfil[]>;
+  cursos$: Observable<Curso[]>;
 
   constructor(
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
+    private perfilService: PerfilService,
+    private cursoService: CursoService,
     private router: Router
     ) { }
 
@@ -23,8 +32,10 @@ export class UsuarioCadastrarEditarComponent {
       senha: ['', Validators.required],
       perfilId: ['', Validators.required],
       cursoId: [''],
-      matricula: ['', Validators.required]
+      matricula: ['']
     })
+    this.cursos$ = this.cursoService.listar();
+    this.perfis$ = this.perfilService.listar();
   }
 
   salvar() {

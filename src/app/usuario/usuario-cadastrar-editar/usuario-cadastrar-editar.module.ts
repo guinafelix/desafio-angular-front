@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatInputModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSelectModule
   ]
 })
 export class UsuarioCadastrarEditarModule { 
