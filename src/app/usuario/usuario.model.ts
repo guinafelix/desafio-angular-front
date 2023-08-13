@@ -16,3 +16,12 @@ export interface UpdateUser {
   cursoId?: number;
   matricula?: string;
 }
+
+export interface loginDto {
+  nome: string;
+  senha: string;
+}
+
+export interface loginResponseDto {
+  token: string;
+}

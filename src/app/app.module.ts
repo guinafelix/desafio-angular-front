@@ -12,8 +12,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { CorsInterceptor } from './cors.interceptor';
+import { CorsInterceptor } from './http-interceptors/cors.interceptor';
 import { RouterModule } from '@angular/router';
+import { httpInterceptorsProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CorsInterceptor,
-      multi: true,
-    },
+    httpInterceptorsProviders,
   ],
   bootstrap: [AppComponent]
 })

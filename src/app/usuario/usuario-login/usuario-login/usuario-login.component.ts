@@ -26,8 +26,7 @@ export class UsuarioLoginComponent {
 
   async onSubmit() {
     try {
-      const result = await this.usuarioService.login(this.formGroup.value)
-      console.log(result)
+      const result = this.usuarioService.login(this.formGroup.value)
       this.router.navigate(['/'])
     }catch(error) {
       console.log(error)

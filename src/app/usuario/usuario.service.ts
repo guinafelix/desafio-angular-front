@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UpdateUser, Usuario } from './usuario.model';
+import { UpdateUser, Usuario, loginDto, loginResponseDto } from './usuario.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -38,11 +38,16 @@ export class UsuarioService {
     return this.httpClient.patch<void>(`${this.baseUrl}${this.createdEndpoint}/${usuario.id}`, user)  
   }
 
-  login(usuario: any): any {
-    return new Promise((resolve) => {
-      localStorage.setItem('token', 'meu-token')
-      resolve(true)
+  login(login: loginDto): boolean {
+    const response = this.httpClient.post<loginResponseDto>(`${this.baseUrl}${this.loginEndpoint}`, login)
+    response.subscribe((res) => {
+      localStorage.setItem('token', res.token)
+      return true
     })
-    // return this.httpClient.post<void>(`${this.baseUrl}${this.endpoint}/login`, usuario)
+    return false
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token')
   }
 }
