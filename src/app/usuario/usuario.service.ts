@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UpdateUser, Usuario, loginDto, loginResponseDto } from './usuario.model';
 import { Observable } from 'rxjs';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -50,4 +51,36 @@ export class UsuarioService {
   getToken(): string | null {
     return localStorage.getItem('token')
   }
+
+  getTokenExpirationDate(token: string): Date {
+    const decoded: any = jwtDecode(token)
+    if (decoded.exp === undefined) {
+      return null as any;
+    }
+    const date = new Date(0)
+    date.setUTCSeconds(decoded.exp)
+    return date
+  }
+
+  isTokenExpired(token?: string): boolean {
+    if (!token) {
+      return true
+    }
+    const date = this.getTokenExpirationDate(token)
+    if (date === undefined) {
+      return false
+    }
+    return !(date.valueOf() > new Date().valueOf())
+  }
+
+  isUserLogged(): boolean {
+    const token = this.getToken()
+    if (!token) {
+      return false
+    }else if (this.isTokenExpired(token)) {
+      return false
+    }
+    return true 
+  }
 }
+
