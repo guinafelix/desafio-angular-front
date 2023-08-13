@@ -43,11 +43,11 @@ export default [
     loadChildren: () => import('./usuario/usuario-listar/usuario-listar.module').then(m => m.UsuarioListarModule)
   },
   {
-    path:"usuario/cadastrar",
+    path:"usuario",
     loadChildren: () => import('./usuario/usuario-cadastrar-editar/usuario-cadastrar-editar.module').then(m => m.UsuarioCadastrarEditarModule)
   },
   {
-    path:"usuario/editar/:id",
+    path:"usuario",
     loadChildren: () => import('./usuario/usuario-cadastrar-editar/usuario-cadastrar-editar.module').then(m => m.UsuarioCadastrarEditarModule)
   }
 ]

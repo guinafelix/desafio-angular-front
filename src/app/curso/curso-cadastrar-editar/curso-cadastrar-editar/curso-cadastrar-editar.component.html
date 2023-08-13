@@ -3,7 +3,7 @@
   <mat-spinner></mat-spinner>
 </ng-template>
 <div class="component-container">
-  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && onSubmit()" novalidate>
+  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && salvar()" novalidate>
         <mat-form-field>
             <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
             <mat-error>Campo é obrigatório</mat-error>

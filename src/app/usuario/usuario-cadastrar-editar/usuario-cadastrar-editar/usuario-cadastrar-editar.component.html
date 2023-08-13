@@ -1,9 +1,13 @@
-<mat-toolbar>{{(usuario && usuario.id) ? 'Editar Usuario' : 'Cadastrar Usuáriof'}}</mat-toolbar>
+<mat-toolbar>{{(usuario && usuario.id) ? 'Editar Usuario' : 'Cadastrar Usuário'}}</mat-toolbar>
 <div class="component-container">
   <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && salvar()"
         novalidate>
+        <mat-form-field >
+            <input matInput readonly placeholder="Id" formControlName="id" autocomplete="off">
+            <mat-error>Campo é obrigatório</mat-error>
+        </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
+            <input matInput placeholder="Nome" formControlName="nome" autocomplete="off">
             <mat-error>Campo é obrigatório</mat-error>
         </mat-form-field>
         <mat-form-field>

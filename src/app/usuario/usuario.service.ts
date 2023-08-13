@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Usuario } from './usuario.model';
+import { UpdateUser, Usuario } from './usuario.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -27,7 +27,13 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(`${this.baseUrl}${this.createdEndpoint}/${id}`)
   }
 
-  atualizar(usuario: Usuario): Observable<void> {
-    return this.httpClient.patch<void>(`${this.baseUrl}${this.createdEndpoint}/${usuario.id}`, usuario)  
+  atualizar(usuario: UpdateUser): Observable<void> {
+    const user = Object.assign({}, {
+      nome: usuario?.nome,
+      perfilId: usuario?.perfilId,
+      cursoId: usuario?.cursoId,
+      matricula: usuario?.matricula
+    })
+    return this.httpClient.patch<void>(`${this.baseUrl}${this.createdEndpoint}/${usuario.id}`, user)  
   }
 }

@@ -70,10 +70,6 @@ export class CursoCadastrarEditarComponent {
     this.ofertasDisciplinas(i).removeAt(j);
   }
 
-  onSubmit() {
-    console.log(this.formGroup.value);
-  }
-
   salvar() {
     this.cursoService.cadastrar(this.formGroup.value).subscribe(
       perfilCadastrado => {

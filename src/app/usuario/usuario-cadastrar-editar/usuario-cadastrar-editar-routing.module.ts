@@ -4,11 +4,11 @@ import { UsuarioCadastrarEditarComponent } from './usuario-cadastrar-editar/usua
 import { UsuarioResolverService } from './usuario-resolver.service';
 
 const routes: Routes = [
-  { path: "", component: UsuarioCadastrarEditarComponent, 
+  { path: "cadastrar", component: UsuarioCadastrarEditarComponent},
+  { path: "editar/:id", component: UsuarioCadastrarEditarComponent, 
     resolve: {
       usuario: UsuarioResolverService
-    }
-}
+    }},
 ];
 
 @NgModule({

@@ -8,3 +8,11 @@ export interface Usuario {
   curso?: Curso;
   perfil: Perfil;
 }
+
+export interface UpdateUser {
+  id: number;
+  nome?: string;
+  perfilId?: number;
+  cursoId?: number;
+  matricula?: string;
+}

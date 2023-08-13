@@ -32,11 +32,12 @@ export class UsuarioCadastrarEditarComponent {
   ngOnInit() {
     this.usuario = this.activatedRoute.snapshot.data['usuario'];
     this.formGroup = this.formBuilder.group({
-      nome: [(this.usuario && this.usuario.id) ? this.usuario.id : null, Validators.required],
+      id: [{value: (this.usuario && this.usuario.id) ? this.usuario.id : null, disabled: false}],
+      nome: [(this.usuario && this.usuario.id) ? this.usuario.nome : null, Validators.required],
       senha: [{value: '', disabled: (this.usuario && this.usuario.id) ? true : false}, Validators.required],
-      perfilId: [(this.usuario && this.usuario.id) ? this.usuario.perfil.id : null, Validators.required],
-      cursoId: [(this.usuario && this.usuario.id) ? this.usuario.curso?.id : null, Validators.required],
-      matricula: [(this.usuario && this.usuario.id) ? this.usuario?.matricula : null, Validators.required],
+      perfilId: [(this.usuario && this.usuario.id) ? this.usuario.perfil.id : null],
+      cursoId: [(this.usuario && this.usuario.id) ? this.usuario.curso?.id : null],
+      matricula: [(this.usuario && this.usuario.id) ? this.usuario?.matricula : null],
     })
     this.cursos$ = this.cursoService.listar();
     this.perfis$ = this.perfilService.listar();
@@ -49,7 +50,7 @@ export class UsuarioCadastrarEditarComponent {
           this.router.navigateByUrl("/usuarios");
         },
         error => {
-          alert("Erro ao cadastrar usuário!")
+          alert("Erro ao editar usuário!")
         }
       );
     } else {
