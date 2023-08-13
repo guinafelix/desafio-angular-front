@@ -1,27 +1,79 @@
-# DesafioFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+# Desafio Desenvolvedor (Front End)
 
-## Development server
+Esse repositório contém o front end do desafio proposto para a vaga de desenvolvedor.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Autores
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [@guinafelix](https://www.github.com/guinafelix)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Stack Utilizada
 
-## Running end-to-end tests
+**Back-End**: Node.js, Typescript, Angular
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Bibliotecas**: JwtDecode
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Documentação do Projeto
+
+#### Esse projeto foi desenvolvido para consumir as rotas da aplicação back end. Para acessar a documentação, basta acessar http://localhost:8080/api/docs.html
+
+## Funcionalidades
+
+- Administrador (CRUD Completo de Disciplinas, Cursos, Perfis e Usuários)
+- Alunos e professores (Visualizar matriz curricular)
+
+
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+git clone git@github.com:guinafelix/desafio-profectum-front.git
+```
+
+Entre no diretório do projeto
+
+```bash
+cd my-project
+```
+
+Instale as dependências
+
+```bash
+npm install
+```
+
+Com o back end rodando inicie o projeto
+
+```bash
+ng g serve -o
+```
+
+
+## FAQ
+
+#### Qual arquitetura foi desenvolvida na execução deste projeto?
+
+Este projeto foi desenvolvido implementado os princípios do SOLID no qual cada funcionalidade tem seu pŕoprio módulo, o que divide a aplicação em pequenos segmentos que atuam em conjunto.
+
+#### Quais funcionalidades estão presentes nesse projeto?
+- Apesar de algumas funcionalidades não estarem completas este projeto possui sistema de autenticação por login jwt e possui exemplos funcionais de integração com o back-end nas principais requisições http [POST, PATCH, GET, DELETE].
+
+#### Quais pontos do projeto podem ser melhorados?
+
+- O design do projeto está bem simples, feito com o intuito apenas de atender funcionalmente as requisições solicitadas.
+
+- O processo de autenticação jwt foi implementado porém a tela de início ainda não está exibindo o painel dinamicamente adequado para o perfil daquele usuário. NO entanto, mesmo visualizando o painel, o usuário não consegue acessar informações que não sejam referentes ao seu conjunto de permissões, o que atende parcialmente a funcionalidade proposta na definição deste desafio.
+
+
+## 🚀 Sobre mim
+Eu sou um Desenvolvedor FullStack que possui conhecimento nas Stacks Spring Boot, Node.js, Nest.js, React.js, Angular, Flask e FastAPI.
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
