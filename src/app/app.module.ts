@@ -13,12 +13,16 @@ import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CorsInterceptor } from './cors.interceptor';
+import { UsuarioLoginComponent } from './usuario/usuario-login/usuario-login.component';
+import { AuthenticationComponent } from './usuario/layout/authentication/authentication.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     HomeComponent,
+    UsuarioLoginComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
