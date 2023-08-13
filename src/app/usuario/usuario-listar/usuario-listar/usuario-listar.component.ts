@@ -11,7 +11,7 @@ import { UsuarioService } from '../../usuario.service';
 export class UsuarioListarComponent {
   usuarios$: Observable<Usuario[]>;
 
-  colunasTabela = ['id', 'nome', 'matricula', 'perfil', 'curso'];
+  colunasTabela = ['id', 'nome', 'matricula', 'perfil', 'curso', 'acoes'];
 
   constructor (
     private usuarioService: UsuarioService,

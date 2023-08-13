@@ -22,4 +22,12 @@ export class UsuarioService {
   cadastrar(usuario: Usuario): Observable<void> {
     return this.httpClient.post<void>(`${this.baseUrl}${this.createdEndpoint}`, usuario)
   }
+
+  buscarPorId(id: number): Observable<Usuario> {
+    return this.httpClient.get<Usuario>(`${this.baseUrl}${this.createdEndpoint}/${id}`)
+  }
+
+  atualizar(usuario: Usuario): Observable<void> {
+    return this.httpClient.patch<void>(`${this.baseUrl}${this.createdEndpoint}/${usuario.id}`, usuario)  
+  }
 }
