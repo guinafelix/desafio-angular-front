@@ -11,6 +11,7 @@ export class UsuarioService {
   private baseUrl = "http://localhost:8080/api"
   private endpoint = "/usuarios"
   private createdEndpoint = "/usuario"
+  private loginEndpoint = "/login"
 
 
   constructor(private httpClient: HttpClient) {}
@@ -35,5 +36,13 @@ export class UsuarioService {
       matricula: usuario?.matricula
     })
     return this.httpClient.patch<void>(`${this.baseUrl}${this.createdEndpoint}/${usuario.id}`, user)  
+  }
+
+  login(usuario: any): any {
+    return new Promise((resolve) => {
+      localStorage.setItem('token', 'meu-token')
+      resolve(true)
+    })
+    // return this.httpClient.post<void>(`${this.baseUrl}${this.endpoint}/login`, usuario)
   }
 }

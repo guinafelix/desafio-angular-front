@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-padrao {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto; /* Adicione essa linha para centralizar horizontalmente */
+}

@@ -1,0 +1,17 @@
+<div class="login-form">
+  <form class="login-form" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && onSubmit()"
+        novalidate>
+        <mat-toolbar style="justify-content: center;">Login</mat-toolbar>
+        <mat-form-field>
+            <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
+            <mat-error>Campo é obrigatório</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Senha" type="password" formControlName="senha" required autocomplete="off">
+          <mat-error>Campo é obrigatório</mat-error>
+      </mat-form-field>
+        <div class="linha-botoes">
+            <button mat-raised-button color="primary" [disabled]="!formGroup.valid">Login</button>
+        </div>
+    </form>
+</div>
