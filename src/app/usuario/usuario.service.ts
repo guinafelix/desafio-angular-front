@@ -10,11 +10,16 @@ export class UsuarioService {
 
   private baseUrl = "http://localhost:8080/api"
   private endpoint = "/usuarios"
+  private createdEndpoint = "/usuario"
 
 
   constructor(private httpClient: HttpClient) {}
 
   listar(): Observable<Usuario[]> {
     return this.httpClient.get<Usuario[]>(`${this.baseUrl}${this.endpoint}`)
+  }
+
+  cadastrar(usuario: Usuario): Observable<void> {
+    return this.httpClient.post<void>(`${this.baseUrl}${this.createdEndpoint}`, usuario)
   }
 }
