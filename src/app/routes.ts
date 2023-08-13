@@ -1,4 +1,9 @@
 import { HomeComponent } from './home/home.component';
+import { authGuard } from './usuario/auth.guard';
+import { AuthenticationComponent } from './usuario/layout/authentication/authentication.component';
+import { UsuarioLoginComponent } from './usuario/usuario-login/usuario-login.component';
+
+type PathMatch = 'full' | 'prefix';
 
 export default [
   {
@@ -53,6 +58,15 @@ export default [
         path:"usuario",
         loadChildren: () => import('./usuario/usuario-cadastrar-editar/usuario-cadastrar-editar.module').then(m => m.UsuarioCadastrarEditarModule)
       }
-    ]
+    ],
+    canActivate: [authGuard]
   },
+  {
+    path: '',
+    component: AuthenticationComponent,
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' as PathMatch},
+      { path: 'login', component: UsuarioLoginComponent}
+    ]
+  }
 ]
