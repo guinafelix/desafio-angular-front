@@ -39,13 +39,13 @@ export class UsuarioService {
     return this.httpClient.patch<void>(`${this.baseUrl}${this.createdEndpoint}/${usuario.id}`, user)  
   }
 
-  login(login: loginDto): boolean {
-    const response = this.httpClient.post<loginResponseDto>(`${this.baseUrl}${this.loginEndpoint}`, login)
-    response.subscribe((res) => {
-      localStorage.setItem('token', res.token)
-      return true
-    })
-    return false
+  async login(user: loginDto) {
+    const result = await this.httpClient.post<loginResponseDto>(`${this.baseUrl}${this.loginEndpoint}`, user).toPromise();
+    if (result && result.token) {
+      window.localStorage.setItem('token', result.token);
+      return true;
+    }
+    return false;
   }
 
   getToken(): string | null {

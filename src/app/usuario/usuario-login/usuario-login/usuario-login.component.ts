@@ -24,10 +24,11 @@ export class UsuarioLoginComponent {
     })
   }
 
-  async onSubmit() {
+  onSubmit() {
     try {
       const result = this.usuarioService.login(this.formGroup.value)
-      this.router.navigateByUrl('/')
+       console.log(`Login efetuado: ${result}`)
+      this.router.navigateByUrl('/') 
     }catch(error) {
       console.log(error)
     }
