@@ -52,7 +52,7 @@ npm install
 Com o back end rodando inicie o projeto
 
 ```bash
-ng g serve -o
+ng serve -o
 ```
 
 
