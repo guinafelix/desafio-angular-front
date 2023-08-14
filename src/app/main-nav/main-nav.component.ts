@@ -21,7 +21,6 @@ export class MainNavComponent {
     );
 
   logout() {
-    console.log('logout')
     localStorage.removeItem('token')
     this.router.navigateByUrl('/login')
   }

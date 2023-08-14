@@ -14,69 +14,51 @@ import { DisciplinaService } from 'src/app/disciplina/disciplina.service';
 export class CursoCadastrarEditarComponent {
 
   formGroup: FormGroup;
-  disciplinas$: Observable<Disciplina[]>;
+  disciplinas$: Observable<Disciplina[]>
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private cursoService: CursoService,
+  constructor(private formBuilder: FormBuilder,
+    private disciplinaService: DisciplinaService,
     private router: Router,
-    private disciplinaService: DisciplinaService
-    ) { }
+    private cursoService: CursoService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
       nome: ['', Validators.required],
       duracaoEmSemestres: ['', Validators.required],
-      ofertas: this.formBuilder.array([])
-    })
+      ofertas: this.formBuilder.array([
+        this.createOfertaFormGroup(),
+      ])
+    });
     this.disciplinas$ = this.disciplinaService.listar();
   }
-
 
   get ofertas(): FormArray {
     return this.formGroup.get('ofertas') as FormArray;
   }
 
-  newOferta(): FormGroup {
+  createOfertaFormGroup(): FormGroup {
     return this.formBuilder.group({
       semestre: ['', Validators.required],
-      disciplinasId: this.formBuilder.array([])
-    })
+      disciplinasId: [[]]
+    });
   }
 
   addOferta() {
-    this.ofertas.push(this.newOferta());
-  }
-  
-  removeOferta(i: number) {
-    this.ofertas.removeAt(i);
+    this.ofertas.push(this.createOfertaFormGroup());
   }
 
-  ofertasDisciplinas(i: number): FormArray {
-    return this.ofertas.at(i).get("disciplinasId") as FormArray;
+
+  removeOferta(index: number) {
+    this.ofertas.removeAt(index);
   }
 
-  newDisciplinas(): FormGroup {
-    return this.formBuilder.group({
-      id: ['', Validators.required]
-    })
-  }
-
-  addDisciplinas(i: number) {
-    this.ofertasDisciplinas(i).push(this.newDisciplinas());
-  }
-
-  removeDisciplinas(i: number, j: number) {
-    this.ofertasDisciplinas(i).removeAt(j);
-  }
-
-  salvar() {
+  salvar(): void {
     this.cursoService.cadastrar(this.formGroup.value).subscribe(
-      perfilCadastrado => {
+      cursoCadastrado => {
         this.router.navigateByUrl("/cursos");
       },
       error => {
-        alert("Erro ao cadastrar curso!")
+        alert("Erro ao cadastrar curso!");
       }
     );
   }

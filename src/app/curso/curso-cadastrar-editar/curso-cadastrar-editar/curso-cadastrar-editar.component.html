@@ -3,40 +3,41 @@
   <mat-spinner></mat-spinner>
 </ng-template>
 <div class="component-container">
-  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="formGroup.valid && salvar()" novalidate>
+  <form class="form-padrao" *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="salvar()">
+    <mat-form-field>
+      <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
+      <mat-error>Campo é obrigatório</mat-error>
+      </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Qtd. de Semestres" formControlName="duracaoEmSemestres" required autocomplete="off">
+      <mat-error>Campo é obrigatório</mat-error>
+    </mat-form-field>
+      
+    <div formArrayName="ofertas">
+      <div *ngFor="let oferta of ofertas.controls; let i=index" [formGroupName]="i">
         <mat-form-field>
-            <input matInput placeholder="Nome" formControlName="nome" required autocomplete="off">
-            <mat-error>Campo é obrigatório</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Qtd. de Semestres" formControlName="duracaoEmSemestres" required autocomplete="off">
+          <input matInput placeholder="Semestre" formControlName="semestre" required autocomplete="off">
           <mat-error>Campo é obrigatório</mat-error>
         </mat-form-field>
+        
+        <mat-form-field>
+          <mat-select placeholder="Disciplinas" multiple formControlName="disciplinasId">
+            <mat-option *ngFor="let disciplina of disciplinas$ | async" [value]="disciplina.id">{{disciplina.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-        <mat-toolbar>Cadastrar Ofertas</mat-toolbar>
-
-        <div formArrayName="ofertas">
-          <div *ngFor="let oferta of ofertas.controls; let i=index">
-            <div [formGroupName]="i">
-              <mat-form-field>
-                <input matInput placeholder="Semestre" formControlName="semestre" required autocomplete="off">
-                <mat-error>Campo é obrigatório</mat-error>
-              </mat-form-field>
-              <mat-form-field>
-                <mat-select placeholder="Disciplinas" multiple formControlName="id" required>
-                  <mat-option *ngFor="let disciplina of disciplinas$ | async" [value]="disciplina.id">{{disciplina.nome}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-      
-        <button mat-mini-fab (click)="addOferta()">
-          <mat-icon>add</mat-icon>
+        <button mat-mini-fab type="button" (click)="removeOferta(i)">
+          <mat-icon>delete</mat-icon>
         </button>
-        <div class="linha-botoes">
-            <button mat-raised-button color="primary" [disabled]="!formGroup.valid">Salvar</button>
-            <button type="button" mat-raised-button routerLink="/cursos">Cancelar</button>
-        </div>
+      </div>
+    </div>
+    <button mat-mini-fab type="button" (click)="addOferta()">
+          <mat-icon>add</mat-icon>
+      </button>
+    <div class="linha-botoes">
+      <button mat-raised-button color="primary" [disabled]="!formGroup.valid">Salvar</button>
+      <button type="button" mat-raised-button routerLink="/cursos">Cancelar</button>
+    </div>
   </form>
+
 </div>

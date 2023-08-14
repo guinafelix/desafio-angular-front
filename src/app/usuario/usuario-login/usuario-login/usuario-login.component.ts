@@ -27,7 +27,6 @@ export class UsuarioLoginComponent {
   onSubmit() {
     try {
       const result = this.usuarioService.login(this.formGroup.value)
-       console.log(`Login efetuado: ${result}`)
       this.router.navigateByUrl('/') 
     }catch(error) {
       console.log(error)
