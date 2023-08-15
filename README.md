@@ -1,4 +1,4 @@
-
+ú
 # Desafio Desenvolvedor (Front End)
 
 Esse repositório contém o front end do desafio proposto para a vaga de desenvolvedor.
@@ -13,7 +13,7 @@ Esse repositório contém o front end do desafio proposto para a vaga de desenvo
 
 # Stack Utilizada
 
-**Back-End**: Node.js, Typescript, Angular
+**Front-End**: Node.js, Typescript, Angular
 
 **Bibliotecas**: JwtDecode
 
