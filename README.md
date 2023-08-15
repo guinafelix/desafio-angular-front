@@ -1,4 +1,3 @@
-ú
 # Desafio Desenvolvedor (Front End)
 
 Esse repositório contém o front end do desafio proposto para a vaga de desenvolvedor.
